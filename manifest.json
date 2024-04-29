@@ -1,0 +1,56 @@
+{
+    "manifest_version": 3,
+    "name": "Google Search Result Preview",
+    "version": "1.0",
+    "description": "Enhances your Google search experience by providing immediate, in-page previews of web pages directly from the search results.",
+    "permissions": [
+        "activeTab",
+        "declarativeNetRequest"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.google.com/search*"
+            ],
+            "exclude_matches": [
+                "*://*.google.com/search?*udm=2*",
+                "*://*.google.com/search?*tbm=nws*",
+                "*://*.google.com/search?*tbm=shop*",
+                "*://*.google.com/search?*tbm=bks*",
+                "*://*.google.com/search?*tbm=fin*",
+                "*://*.google.com/search?*tbm=app*",
+                "*://*.google.com/search?*tbm=lcl*",
+                "*://*.google.com/search?*tbm=plcs*",
+                "*://*.google.com/search?*tbm=isch*",
+                "*://*.google.com/search?*tbm=pts*",
+                "*://*.google.com/search?*tbm=blg*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "declarative_net_request": {
+        "rule_resources": [
+            {
+                "id": "net_rules",
+                "enabled": true,
+                "path": "net_rules.json"
+            }
+        ]
+    },
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "action": {
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "48": "icons/icon48.png"
+        }
+    },
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    }
+}
