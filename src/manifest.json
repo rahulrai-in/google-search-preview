@@ -10,7 +10,8 @@
     "content_scripts": [
         {
             "matches": [
-                "*://*.google.com/search*"
+                "*://*.google.com/search*",
+                "*://*.bing.com/search*"
             ],
             "exclude_matches": [
                 "*://*.google.com/search?*udm=2*",
